@@ -2,21 +2,25 @@ package com.dev.VideoCatalog.domain.entity;
 
 import java.util.UUID;
 
-public class Category {
+public class Category extends BaseEntity {
 
-  private UUID id;
   private String name;
-  
-  public Category() {}
-  public Category(String name) {}
-  public Category(UUID id, String name) {}
 
-  public UUID getId() {
-    return this.id;
+  public Category() {
   }
 
-  public void setId(UUID id) {
-    this.id = id;
+  public Category(String name) {
+    super.generateUUID();
+    setName(name);
+  }
+
+  public Category(UUID id) {
+    super.setId(id);
+  }
+
+  public Category(UUID id, String name) {
+    super.setId(id);
+    setName(name);
   }
 
   public String getName() {
@@ -24,8 +28,10 @@ public class Category {
   }
 
   public void setName(String name) {
-    if (name == null) throw new IllegalArgumentException("");
-    if (name.length() == 0) throw new IllegalArgumentException("");
+    if (name == null)
+      throw new IllegalArgumentException("");
+    if (name.length() == 0)
+      throw new IllegalArgumentException("");
     this.name = name;
   }
 }
