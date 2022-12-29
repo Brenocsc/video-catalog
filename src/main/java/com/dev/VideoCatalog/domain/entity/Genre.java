@@ -40,9 +40,9 @@ public class Genre extends BaseEntity {
 
   public void setName(String name) {
     if (name == null)
-      throw new IllegalArgumentException("");
+      throw new IllegalArgumentException("name is marked non-null but is null");
     if (name.length() == 0)
-      throw new IllegalArgumentException("");
+      throw new IllegalArgumentException("name is marked non-blank but is blank");
     this.name = name;
   }
 
@@ -52,19 +52,19 @@ public class Genre extends BaseEntity {
 
   public void setCategories(List<Category> categories) {
     if (categories == null)
-      throw new IllegalArgumentException("");
+      throw new IllegalArgumentException("categories is marked non-null but is null");
     this.categories = categories;
   }
 
   public void addCategories(Category category) {
     if (category == null)
-      throw new IllegalArgumentException("");
+      throw new IllegalArgumentException("categories is marked non-null but is null");
     this.categories.add(category);
   }
 
   public void removeCategories(Category category) {
     if (categories == null)
-      throw new IllegalArgumentException("");
+      throw new IllegalArgumentException("categories is marked non-null but is null");
     this.categories.removeIf(c -> this.categories.contains(category));
   }
 }
