@@ -6,8 +6,8 @@ public class Category extends BaseEntity {
 
   private String name;
 
-  public Category() {
-  }
+  // public Category() {
+  // }
 
   public Category(String name) {
     super.generateUUID();
