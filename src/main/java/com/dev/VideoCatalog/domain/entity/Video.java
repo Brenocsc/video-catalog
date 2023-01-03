@@ -109,4 +109,34 @@ public class Video extends BaseEntity {
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
     this.duration = Float.valueOf(decimalFormat.format(duration));
   }
+
+  public List<Category> getCategories() {
+    return this.categories;
+  }
+
+  public void setCategories(List<Category> categories) {
+    if (categories == null)
+      throw new IllegalArgumentException("categories is marked non-null but is null");
+    this.categories = categories;
+  }
+
+  public List<Genre> getGenres() {
+    return this.genres;
+  }
+
+  public void setGenres(List<Genre> genres) {
+    if (genres == null)
+      throw new IllegalArgumentException("genres is marked non-null but is null");
+    this.genres = genres;
+  }
+
+  public List<CastMember> getCastMembers() {
+    return this.castMembers;
+  }
+
+  public void setCastMembers(List<CastMember> castMembers) {
+    if (castMembers == null)
+      throw new IllegalArgumentException("castMembers is marked non-null but is null");
+    this.castMembers = castMembers;
+  }
 }
