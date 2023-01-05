@@ -26,12 +26,18 @@ public class CategoryTests {
 
   @Test
   public void throwIllegalArgumentExceptionWhenIdIsNull() {
-    assertThrows(IllegalArgumentException.class, () -> new Category((UUID) null));
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> new Category((UUID) null));
+    String actualMessage = exception.getMessage();
+
+    assertTrue(actualMessage.contains("id is marked non-null but is null"));
   }
 
   @Test
   public void throwIllegalArgumentExceptionWhenNameIsBlank() {
-    assertThrows(IllegalArgumentException.class, () -> new Category(""));
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> new Category(""));
+    String actualMessage = exception.getMessage();
+
+    assertTrue(actualMessage.contains("name is marked non-blank but is blank"));
   }
 
   @Test
