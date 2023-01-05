@@ -139,4 +139,40 @@ public class Video extends BaseEntity {
       throw new IllegalArgumentException("castMembers is marked non-null but is null");
     this.castMembers = castMembers;
   }
+
+  public void addCategory(Category category) {
+    if (category == null)
+      throw new IllegalArgumentException("category is marked non-null but is null");
+    this.categories.add(category);
+  }
+
+  public void removeCategory(Category category) {
+    if (category == null)
+      throw new IllegalArgumentException("category is marked non-null but is null");
+    this.categories.removeIf(c -> this.categories.contains(category));
+  }
+
+  public void addGenre(Genre genre) {
+    if (genre == null)
+      throw new IllegalArgumentException("genre is marked non-null but is null");
+    this.genres.add(genre);
+  }
+
+  public void removeGenre(Genre genre) {
+    if (genre == null)
+      throw new IllegalArgumentException("genre is marked non-null but is null");
+    this.genres.removeIf(c -> this.genres.contains(genre));
+  }
+
+  public void addCastMember(CastMember member) {
+    if (member == null)
+      throw new IllegalArgumentException("member is marked non-null but is null");
+    this.castMembers.add(member);
+  }
+
+  public void removeCastMember(CastMember member) {
+    if (member == null)
+      throw new IllegalArgumentException("member is marked non-null but is null");
+    this.castMembers.removeIf(c -> this.castMembers.contains(member));
+  }
 }
