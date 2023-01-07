@@ -63,8 +63,8 @@ public class Genre extends BaseEntity {
   }
 
   public void removeCategories(Category category) {
-    if (categories == null)
-      throw new IllegalArgumentException("categories is marked non-null but is null");
-    this.categories.removeIf(c -> this.categories.contains(category));
+    if (category == null)
+      throw new IllegalArgumentException("category is marked non-null but is null");
+    this.categories.removeIf(c -> c.equals(category));
   }
 }
