@@ -43,6 +43,7 @@ public class CategoryTests {
   @Test
   public void createCategory() {
     final Category entity = new Category("Category 1");
+
     assertNotNull(entity);
     assertEquals(entity.getName(), "Category 1");
     assertTrue(entity.isValidUUID(entity.getId().toString()));
