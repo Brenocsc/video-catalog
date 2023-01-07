@@ -169,7 +169,7 @@ public class Video extends BaseEntity {
   public void removeCategory(Category category) {
     if (category == null)
       throw new IllegalArgumentException("category is marked non-null but is null");
-    this.categories.removeIf(c -> this.categories.contains(category));
+    this.categories.removeIf(c -> c.equals(category));
   }
 
   public void addGenre(Genre genre) {
@@ -181,7 +181,7 @@ public class Video extends BaseEntity {
   public void removeGenre(Genre genre) {
     if (genre == null)
       throw new IllegalArgumentException("genre is marked non-null but is null");
-    this.genres.removeIf(c -> this.genres.contains(genre));
+    this.genres.removeIf(c -> c.equals(genre));
   }
 
   public void addCastMember(CastMember member) {
@@ -193,7 +193,7 @@ public class Video extends BaseEntity {
   public void removeCastMember(CastMember member) {
     if (member == null)
       throw new IllegalArgumentException("member is marked non-null but is null");
-    this.castMembers.removeIf(c -> this.castMembers.contains(member));
+    this.castMembers.removeIf(c -> c.equals(member));
   }
 
   public Video createVideoWithFiles(String title, String description, Integer yearLaunched, Float duration,
