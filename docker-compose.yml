@@ -15,15 +15,15 @@ services:
     networks:
       - catalog_network
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8081:8080
-    networks:
-      - catalog_network
-    depends_on:
-      - mysqldb
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8081:8080
+  #   networks:
+  #     - catalog_network
+  #   depends_on:
+  #     - mysqldb
 
   catalog:
     build:
