@@ -1,6 +1,31 @@
 version: '3.7'
 services:
-  demo:
+
+  mysqldb:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=catalog_dev
+      # - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - 3307:3306
+    networks:
+      - catalog_network
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    networks:
+      - catalog_network
+    depends_on:
+      - mysqldb
+
+  catalog:
     build:
       context: ./
       dockerfile: Dockerfile
@@ -11,3 +36,10 @@ services:
     ports:
       - 8080:8080
       - 8005:8005
+    networks:
+      - catalog_network
+    depends_on:
+      - mysqldb
+
+networks:
+  catalog_network:
