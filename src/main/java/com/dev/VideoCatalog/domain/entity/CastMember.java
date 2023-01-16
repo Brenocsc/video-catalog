@@ -9,7 +9,7 @@ enum CastMemberType {
   TYPE2(2);
 
   private Integer type;
-  private final static Map values = new HashMap<>();
+  private final static Map<Integer, CastMemberType> values = new HashMap<>();
 
   private CastMemberType(Integer type) {
     this.type = type;
